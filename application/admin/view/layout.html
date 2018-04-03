@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="ie9 no-focus"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-focus"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <title>{block name="pagetitle" }控制台{/block} - Quick Delivery - 后台管理 </title>
+
+    <meta name="description" content="Quick Delivery - 后台管理">
+    <meta name="author" content="Quick Delivery">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    {include file="base::icons" /}
+    <!-- END Icons -->
+
+    <!-- Stylesheets -->
+    {block name="pagecss" }
+    <!-- Page JS Plugins CSS -->
+    <link rel="stylesheet" href="__STATIC__/js/plugins/slick/slick.min.css">
+    <link rel="stylesheet" href="__STATIC__/js/plugins/slick/slick-theme.min.css">
+    {/block}
+    <!-- OneUI CSS framework -->
+    <link rel="stylesheet" id="css-main" href="__STATIC__/css/oneui.css">
+    <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
+    <!-- <link rel="stylesheet" id="css-theme" href="__STATIC__/css/themes/flat.min.css"> -->
+    <!-- END Stylesheets -->
+</head>
+<body>
+<!-- Page Container -->
+<div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
+    <!-- Sidebar -->
+    {include file="base::sidebar" /}
+    <!-- END Sidebar -->
+
+    <!-- Header -->
+    {include file="base::header" /}
+    <!-- END Header -->
+    {block name="centent"}
+    <!-- Main Container -->
+    <!--{__REPLACE__}-->
+    <!-- END Main Container -->
+    {/block}
+    <!-- Footer -->
+    {include file="base::footer" /}
+    <!-- END Footer -->
+</div>
+<!-- END Page Container -->
+
+{include file="base::appjs" /}
+
+{block name="pagejs"}
+
+{/block}
+
+<script>
+    $(function () {
+        // Init page helpers (Slick Slider plugin)
+        App.initHelpers('slick');
+    });
+</script>
+</body>
+</html>

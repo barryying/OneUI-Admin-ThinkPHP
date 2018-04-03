@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="ie9 no-focus" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-focus" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>后台登录 - Quick Delivery</title>
+    <meta name="description" content="">
+    <meta name="author" content="Quick Delivery">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+    <link rel="shortcut icon" href="__STATIC__/img/favicons/favicon.png">
+    <link rel="icon" type="image/png" href="__STATIC__/img/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="__STATIC__/img/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="__STATIC__/img/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="__STATIC__/img/favicons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="__STATIC__/img/favicons/favicon-192x192.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="57x57" href="__STATIC__/img/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="__STATIC__/img/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="__STATIC__/img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="__STATIC__/img/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="__STATIC__/img/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="__STATIC__/img/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="__STATIC__/img/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="__STATIC__/img/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="__STATIC__/img/favicons/apple-touch-icon-180x180.png">
+    <link rel="stylesheet" id="css-main" href="__STATIC__/css/oneui.css">
+</head>
+<!--<body class="bg-image" style="background-image: url('__STATIC__/img/photos/photo{:rand(1,20)}@2x.jpg');">-->
+<body>
+<div class="bg-white pulldown">
+    <div class="content content-boxed overflow-hidden">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+                <div class="push-30-t push-50 animated fadeIn">
+                    <div class="text-center">
+                        <i class="fa fa-2x fa-circle-o-notch text-primary"></i>
+                        <p class="text-muted push-15-t">A Perfect Admin Project</p>
+                    </div>
+                    <form id="login-form" class="js-validation-login form-horizontal push-30-t" method="post" action="index.html">
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <div class="form-material form-material-primary floating">
+                                    <input class="form-control" type="text" id="login-username" name="username">
+                                    <label for="login-username">用户名</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <div class="form-material form-material-primary floating">
+                                    <input class="form-control" type="password" id="login-password" name="password">
+                                    <label for="login-password">密码</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label class="css-input switch switch-sm switch-primary">
+                                    <input type="checkbox" id="remember-me" name="remember"><span></span>保持登录?
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group push-30-t">
+                            <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                                <button class="btn btn-sm btn-block btn-primary" id="user_login_btn" type="submit">登录</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pulldown push-30-t text-center animated fadeInUp">
+    <small class="text-muted"><span class="js-year-copy"></span> &copy; Quick Delivery.  v{$Think.config.website.version}</small>
+</div>
+
+{include file="base::appjs" /}
+
+<!-- Page Plugins -->
+<script src="__STATIC__/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+<!-- Page JS Code -->
+<script src="__STATIC__/js/pages/base_pages_login.js"></script>ipt>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-16158021-6', 'auto');ga('send', 'pageview');</script>
+</body>
+</html>

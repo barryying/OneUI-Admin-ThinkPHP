@@ -1,0 +1,205 @@
+        {extend name="layout" /}
+        {block name="pagetitle"}管理员管理{/block}
+        {block name="centent"}
+        <!-- Main Container -->
+        <main id="main-container">
+            <!-- Page Header -->
+            <div class="content bg-gray-lighter">
+                <div class="row items-push">
+                    <div class="col-sm-7">
+                        <h1 class="page-heading">
+                            管理员管理
+                        </h1>
+                    </div>
+                    <div class="col-sm-5 text-right hidden-xs">
+                        <ol class="breadcrumb push-10-t">
+                            <li>权限管理</li>
+                            <li><a class="link-effect" href="">管理员管理</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- END Page Header -->
+
+            <!-- Page Content -->
+            <div class="content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- Hover Table -->
+                        <div class="block">
+                            <div class="block-header">
+                                <div class="block-options">
+                                    <div class="col-xs-12">
+                                        <div class="btn-toolbar " role="toolbar">
+                                            <div class="btn-group" role="group">
+                                                <button class="btn btn-success" type="button" data-toggle="modal" data-target="#modal-add"><i class="fa fa-plus"></i>新增管理员</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3 class="block-title">管理员列表</h3>
+                            </div>
+                            <div class="block-content table-responsive">
+                                <table class="table table-hover table-borderless">
+                                    <thead>
+                                    <tr>
+                                        <th class="" style="width: 50px;">ID</th>
+                                        <th class="" style="width: 50px;">用户名</th>
+                                        <th class="" style="width: 50px;">昵称</th>
+                                        <th class="" style="width: 50px;">用户组</th>
+                                        <th class="" style="width: 50px;">头像</th>
+                                        <th class="" style="width: 100px;">邮箱</th>
+                                        <th class="" style="width: 100px;">手机</th>
+                                        <th class="text-center" style="width: 100px;">上次登录IP</th>
+                                        <th class="text-center" style="width: 150px;">上次登录时间</th>
+                                        <th class="text-center" style="width: 50px;">状态</th>
+                                        <th class="text-center" style="width: 100px;">操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {foreach name="data" id="v"}
+                                    <tr>
+                                        <td class="">{$v.id}</td>
+                                        <td>{$v.username}</td>
+                                        <td>{$v.nickname}</td>
+                                        <td>{$v.title}</td>
+                                        <td><img style="height: 30px;width: 30px;" src="{$v.avatar}" alt="{$v.username}" /></td>
+                                        <td>{$v.email}</td>
+                                        <td>{$v.phone}</td>
+                                        <td class="text-center">{$v.last_login_ip}</td>
+                                        <td class="text-center" >{$v.last_login_time|date='Y-m-d H:i:s',###}</td>
+                                        <td class="text-center hidden-xs">
+                                            {if $v.status == 1}
+                                            <button class="btn btn-xs btn-success" data-toggle="tooltip" title="禁用">正常</button>
+                                            {else /}
+                                            <button class="btn btn-xs btn-danger" data-toggle="tooltip" title="启用">禁止</button>
+                                            {/if}
+                                        </td>
+                                        <td class="text-center">
+                                            <button class="btn btn-xs btn-primary" type="button" ><i class="fa fa-pencil"></i>编辑</button>
+                                            <button class="btn btn-xs btn-danger" type="button" ><i class="fa fa-times"></i>删除</button>
+                                        </td>
+                                    </tr>
+                                    {/foreach}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- END Hover Table -->
+                    </div>
+                </div>
+            </div>
+            <!-- END Page Content -->
+        </main>
+        <!-- END Main Container -->
+        <!-- Pop Out Modal -->
+        <div class="modal fade" id="modal-add" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-popout">
+                <div class="modal-content">
+                    <div class="block block-themed block-transparent remove-margin-b">
+                        <div class="block-header bg-primary-dark">
+                            <ul class="block-options">
+                                <li>
+                                    <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
+                                </li>
+                            </ul>
+                            <h3 class="block-title">新增管理员</h3>
+                        </div>
+                        <div class="block-content">
+                            <!-- Static Labels -->
+                            <div class="block-content block-content-narrow">
+                                <form id="add-form" class="form-horizontal push-10-t" method="post">
+                                    <div class="form-group">
+                                        <div class="col-sm-9">
+                                            <div class="form-material">
+                                                <select class="form-control" id="material-select" name="group_ids[]" size="1">
+                                                    <option>请选择用户组</option>
+                                                    {foreach name="auth" id="v"}
+                                                    <option value="{$v.id}">{$v.title}</option>
+                                                    {/foreach}
+                                                </select>
+                                                <label for="material-select">选择用户组</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-9">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="add-username" name="username" placeholder="用户名">
+                                                <label for="add-username">用户名</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-9">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="add-nickname" name="nickname" placeholder="昵称">
+                                                <label for="add-nickname">昵称</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-9">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="add-password" name="password" placeholder="密码">
+                                                <label for="add-password">密码</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-9">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="add-phone" name="phone" placeholder="密码">
+                                                <label for="add-phone">手机</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-9">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="add-email" name="email" placeholder="密码">
+                                                <label for="add-email">邮箱</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-9">
+                                            <div class="form-material">
+                                                <div class="col-xs-6">
+                                                    <label class="css-input css-radio css-radio-success push-10-r">
+                                                        <input type="radio" name="status" value="1"><span></span> 启用
+                                                    </label>
+                                                    <label class="css-input css-radio css-radio-success">
+                                                        <input type="radio" name="status" value="0"><span></span> 关闭
+                                                    </label>
+                                                </div>
+                                                <label >状态</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-9">
+                                            <button class="btn btn-sm btn-primary" id="add_new_user" type="button">提交保存</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- END Static Labels -->
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-sm btn-danger" type="button" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END Pop Out Modal -->
+        {/block}
+
+{block name="pagejs"}
+<!-- Page Plugins -->
+
+<!-- Page JS Code -->
+<script src="__STATIC__/js/pages/base_pages_auth_user.js"></script>
+
+{/block}

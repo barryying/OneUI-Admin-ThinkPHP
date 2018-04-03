@@ -1,0 +1,188 @@
+    {extend name="layout" /}
+    {block name="pagetitle"}系统配置{/block}
+    {block name="centent"}
+    <!-- Main Container -->
+    <main id="main-container">
+        <!-- Page Header -->
+        <div class="content bg-gray-lighter">
+            <div class="row items-push">
+                <div class="col-sm-8">
+                    <h1 class="page-heading">
+                        系统配置
+                    </h1>
+                </div>
+                <div class="col-sm-4 text-right hidden-xs">
+                    <ol class="breadcrumb push-10-t">
+                        <li>系统配置</li>
+                        <li><a class="link-effect" href="">系统管理</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- END Page Header -->
+
+        <!-- Page Content -->
+        <div class="content content-narrow">
+            <!-- Material Design -->
+            <div class="row">
+                <!--tab-->
+                <div class="col-md-12">
+                    <!-- Block Tabs Justified Alternative Style -->
+                    <div class="block">
+                        <ul class="nav nav-tabs nav-tabs-alt nav-justified" data-toggle="tabs">
+                            <li class="active">
+                                <a href="#btabs-settings"><i class="fa fa-cogs"></i>系统配置</a>
+                            </li>
+                            <li>
+                                <a href="#btabs-mailer"><i class="fa fa-cubes"></i>邮件配置</a>
+                            </li>
+                        </ul>
+                        <div class="block-content tab-content">
+                            <div class="tab-pane active" id="btabs-settings">
+                                <!-- Static Labels -->
+                                <div class="block-content block-content-narrow">
+                                    <form id="settings-form" class="form-horizontal push-10-t" method="post">
+                                        <div class="form-group">
+                                            <div class="col-sm-9">
+                                                <div class="form-material">
+                                                    <input class="form-control" type="text" id="settings-websitename" name="sitename" value="{$_website_.sitename}" placeholder="站点名称">
+                                                    <label for="settings-websitename">站点名称</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-9">
+                                                <div class="form-material">
+                                                    <input class="form-control" type="text" id="settings-keyword" value="{$_website_.keyword}" name="keyword" placeholder="关键词信息">
+                                                    <label for="settings-keyword">关键词信息</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-9">
+                                                <div class="form-material">
+                                                    <input class="form-control" type="text" id="settings-icpnumber" name="icpnumber" value="{$_website_.beian}" placeholder="ICP备案号">
+                                                    <label for="settings-icpnumber">ICP备案号</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-9">
+                                                <div class="form-material">
+                                                    <textarea class="form-control" id="settings-introduction" name="introduction" rows="3" placeholder="请输入站点介绍">{$_website_.introduction}</textarea>
+                                                    <label for="settings-introduction">站点介绍</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-9">
+                                                <div class="form-material">
+                                                    <div class="col-xs-6">
+                                                        <label class="css-input css-radio css-radio-success push-10-r">
+                                                            <input type="radio" name="siteon" {$_website_.siteon == 1 ?'checked':''}><span></span> 启用
+                                                        </label>
+                                                        <label class="css-input css-radio css-radio-success">
+                                                            <input type="radio" name="siteon" {$_website_.siteon == 2 ?'checked':''}><span></span> 关闭
+                                                        </label>
+                                                    </div>
+                                                    <label >站点启用</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-9">
+                                                <button class="btn btn-sm btn-primary" id="settings-submit" type="button">提交保存</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- END Static Labels -->
+                            </div>
+                            <div class="tab-pane" id="btabs-mailer">
+                                <!-- Static Labels -->
+                                <div class="block-content block-content-narrow">
+                                    <form class="form-horizontal push-10-t" method="post">
+                                        <div class="form-group">
+                                            <div class="col-sm-9">
+                                                <div class="form-material">
+                                                    <select class="form-control" id="mailer-smtp" name="material-select" size="1">
+                                                        <option>....</option>
+                                                        <option value="1">SMTP</option>
+                                                        <option value="2">MAIL</option>
+                                                        <option value="3">其他</option>
+                                                    </select>
+                                                    <label for="mailer-smtp">邮件发送方式</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-9">
+                                                <div class="form-material">
+                                                    <select class="form-control" id="mailer-ssl" name="material-select" size="1">
+                                                        <option>....</option>
+                                                        <option value="1">SSL</option>
+                                                        <option value="2">TLS</option>
+                                                    </select>
+                                                    <label for="mailer-ssl">邮件验证方式</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-9">
+                                                <div class="form-material">
+                                                    <input class="form-control" type="text" id="mailer-gridf" name="material-gridf" >
+                                                    <label for="mailer-gridf">SMTP服务器</label>
+                                                    <div class="help-block text-right">错误的配置发送邮件会导致服务器超时,不加密默认25,SSL默认465,TLS默认587)</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-3">
+                                                <div class="form-material">
+                                                    <input class="form-control" type="text" id="mailer-gridl" name="material-gridl" >
+                                                    <label for="mailer-gridl">SMTP 端口</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-9">
+                                                <div class="form-material">
+                                                    <input class="form-control" type="text" id="mailer-username" name="material-gridl" >
+                                                    <label for="mailer-username">SMTP用户名</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-9">
+                                                <div class="form-material">
+                                                    <input class="form-control" type="password" id="mailer-password" name="material-gridl" >
+                                                    <label for="mailer-password">SMTP密码</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-9">
+                                                <button class="btn btn-sm btn-primary" type="button">提交保存</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- END Static Labels -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Block Tabs Justified Default Style -->
+                </div>
+                <!--end tab-->
+            </div>
+            <!-- END Material Design -->
+        </div>
+        <!-- END Page Content -->
+    </main>
+    <!-- END Main Container -->
+    {/block}
+{block name="pagejs"}
+<!-- Page Plugins -->
+
+<!-- Page JS Code -->
+<script src="__STATIC__/js/pages/base_pages_system.js"></script>
+
+{/block}
